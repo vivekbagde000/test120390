@@ -1,0 +1,21 @@
+version: '3'
+services:
+  mysql:
+    image: projectdocker1203/mysql-v1
+    ports:
+      -  "3306:3306"
+    volumes:
+      -  vprodb:/var/lib/mysql
+    environment:
+      -  MYSQL_ROOT_PASSWORD=root
+      -  MYSQL_DATABASE=account
+  tomcat:
+    image: projectdocker1203/tomcat-v1
+    ports:
+      -  "8080:8080"
+    volumes:
+      -  vproapp:/usr/local/tomcat/webapps
+volumes:
+  vprodb: {}
+  vproapp: {}
+  
